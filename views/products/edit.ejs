@@ -1,0 +1,41 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div>
+    <div class="mt-3">
+        <h3>Edit this product : <%= product._id %></h3>
+    </div>
+    <form method="POST" action="/products/<%= product._id %>/?_method=PUT" novalidate class="needs-validation">
+        <div class="mt-3">
+            <label for="name" class="form-label">Name</label>
+            <input type="text" name="products[name]" value="<%= product.name %>" class="form-control" placeholder="Enter product name" required>
+            <div class="invalid-feedback">
+                Please provide a valid product name.
+              </div>
+        </div>
+        <div class="mt-3">
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="products[price]" class="form-control" value="<%= product.price %>" placeholder="Enter price" required>
+            <div class="invalid-feedback">
+                Please provide a valid price.
+              </div>
+        </div>
+        <div class="mt-3 col-6">
+            <label for="qty" class="form-label">Qty</label>
+            <input type="number" name="products[qty]" value="<%= product.qty %>" class="form-control" placeholder="Enter quantity" required>
+            <div class="invalid-feedback">
+                Please provide a valid quantity.
+              </div>
+        </div>
+        <div class="mt-3">
+            <label for="supName" class="form-label">Supplier Name</label>
+            <input type="text" name="products[supName]" value="<%= product.supName %>" class="form-control" placeholder="Enter supplier name" required>
+            <div class="invalid-feedback">
+                Please provide a valid supplier name.
+              </div>
+        </div>
+        <div class="mt-3">
+            <label for="date" class="form-label">Date</label>
+            <input value="<%= product.date %>" name="products[date]" class="form-control" required>
+        </div>
+        <button class="btn btn-dark mt-3">Edit product</button>
+    </form>
+</div>
