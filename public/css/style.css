@@ -1,94 +1,94 @@
 body {
-    font-family: "Plus Jakarta Sans", sans-serif !important;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-color: #C0BDA5 !important;
-} 
+  font-family: "Plus Jakarta Sans", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #c0bda5 !important;
+}
 
 .container {
-    flex: 1;
+  flex: 1;
 }
 
 /* Navbar */
 .navbar {
-    height: 5rem;
-    background-color: #CC978E;
+  height: 5rem;
+  background-color: #cc978e;
 }
 
 .fa-compass {
-    color: #261447;
-    font-size: 2rem;
+  color: #261447;
+  font-size: 2rem;
 }
 
 .fa-compass:hover {
-    color: #fe424d !important;
+  color: #fe424d !important;
 }
 
 .nav-link {
-    color: #222222 !important;
-    
+  color: #222222 !important;
 }
 
 .nav-link:hover {
-    color: #fe424d !important;
-    font-weight: 700;
-    font-size: 1.2rem;
+  color: #fe424d !important;
+  font-weight: 700;
+  font-size: 1.2rem;
 }
 
 /* table */
 
-.table { 
-    color: #F39C6B !important;
+.table {
+  color: #f39c6b !important;
 }
 
 /* footer */
 
 .footer {
-    background-color: #261447 !important;
-    color: #EAE6E5 !important;
-
+  background-color: #261447 !important;
+  color: #eae6e5 !important;
 }
 
 .f-info-links a {
-    text-decoration: none;
-    color: #EAE6E5;
-    padding-right: 1rem;
+  text-decoration: none;
+  color: #eae6e5;
+  padding-right: 1rem;
 }
 
 .f-info-links a:hover {
-    text-decoration: underline;
-    color: #fe424d;
+  text-decoration: underline;
+  color: #fe424d;
 }
 
-.f-info-links, .f-info-socials, .f-info-brand {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.f-info-links,
+.f-info-socials,
+.f-info-brand {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .f-info-socials i {
-    font-size: 1.2rem;
-    margin-right: 1rem;
+  font-size: 1.2rem;
+  margin-right: 1rem;
 }
 
 .f-info-socials a {
-    color: white;
-    text-decoration: none !important;
+  color: white;
+  text-decoration: none !important;
 }
 
 .f-info-socials a:hover {
-    color: #fe424d;
-    font-size: 1.5rem;
+  color: #fe424d;
+  font-size: 1.5rem;
 }
 
 .f-info {
-    display: flex;
-    height: 8rem;
-    background-color: #ebebeb;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: space-evenly;
-    text-align: center;
+  display: flex;
+  height: 8rem;
+  background-color: #ebebeb;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: space-evenly;
+  text-align: center;
 }
