@@ -1,0 +1,36 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<div>
+        <h3>All Customers</h3>
+        <a href="/customers/new"
+        ><button class="btn btn-dark">Add New Customer</button></a
+        >
+        <table class="table mt-3 mb-3 text-center align-middle table-striped table-bordered fs-5">
+            <tr>
+                <th scope="col" class="ccol-1">No.</th>
+                <th class="ccol-5" scope="col">Name</th>
+                <th class="ccol-4" scope="col">Mobile No.</th>
+                <th class="ccol-1" scope="col"></th>
+                <th class="ccol-1" scope="col"></th>
+            </tr>
+           
+            <% for(let customer of customers) {%>
+                <tr>
+                    <td scope="row"><%= customer.num %></td>
+                    <td><%= customer.name %></td>
+                    <td><%= customer.phNo %></td>
+                    <td>
+                        <a href="/customers/<%= customer._id%>/edit"
+                            ><button class="btn btn-dark">Edit</button></a
+                            >
+                        </td>
+                        <td>
+                            <form method="POST" action="/customers/<%= customer._id %>?_method=DELETE">
+                                <button class="btn btn-dark">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+            
+                </table>
+            </form>
+            </div>
