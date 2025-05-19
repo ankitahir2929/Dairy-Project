@@ -5,7 +5,7 @@
   </div>
   <form
     method="POST"
-    action="/products/<%= product._id %>/?_method=PUT"
+    action="/products/<%= product._id %>?_method=PUT"
     novalidate
     class="needs-validation"
   >
@@ -60,7 +60,8 @@
     <div class="mt-3">
       <label for="date" class="form-label">Date</label>
       <input
-        value="<%= product.date %>"
+        type="date"
+        value="<%= this.value = product.date.toLocaleDateString('en-CA'); %>"
         name="products[date]"
         class="form-control"
         required

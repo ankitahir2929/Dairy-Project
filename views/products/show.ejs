@@ -1,42 +1,45 @@
 <% layout("/layouts/boilerplate.ejs") %>
 <div>
-    <h3 class="mt-3">All items</h3>
-    <a href="/products/new">
-        <button class="btn btn-dark mt-3">Add Items</button>
-    </a>
-    <table class="table table-striped table-bordered align-middle text-center fs-5 mt-3">
-        <tr>
-            <th class="col-1">Id</th>
-            <th class="col-3">Name</th>
-            <th class="col-1">Price</th>
-            <th class="col-1">Quantity</th>
-            <th class="col-2">Supplier</th>
-            <th class="col-1">Date</th>
-            <th class="col-1"></th>
-            <th class="col-1"></th>
-        </tr>
-        
-            <% for(let product of products) {%> 
-                <tr>
-                    <td><%= product.id %></td>
-                    <td><%= product.name %></td>
-                    <td><%= product.price %></td>
-                    <td><%= product.qty %></td>
-                    <td><%= product.supName %></td>
-                    <td><%= product.date %></td>    
-                    <td>
-                        <a href="/products/<%= product._id %>/edit">
-                            <button class="btn btn-dark">Edit</button>
-                        </a>
-                    </td>
-                    <td>
-                        <form method="POST" action="/products/<%= product._id %>?_method=DELETE">
-                            <button class="btn btn-dark">Delete</button>
-                        </form>
-                    </td>
-                        
-                </tr>
-            <%}%>
-                
-      </table>
+  <h3 class="mt-3">All items</h3>
+  <a href="/products/new">
+    <button class="mt-3 btn btn-dark">Add Items</button>
+  </a>
+  <table
+    class="table mt-3 text-center align-middle table-striped table-bordered fs-5"
+  >
+    <tr>
+      <th class="col">No.</th>
+      <th class="col">Name</th>
+      <th class="col">Price</th>
+      <th class="col">Quantity</th>
+      <th class="col">Supplier</th>
+      <th class="col">Date</th>
+      <th class="col"></th>
+      <th class="col"></th>
+    </tr>
+
+    <% for(let product of products) {%>
+    <tr>
+      <td><%= product.num %></td>
+      <td><%= product.name %></td>
+      <td><%= product.price %></td>
+      <td><%= product.qty %></td>
+      <td><%= product.supName %></td>
+      <td><%= product.date.toLocaleDateString('en-GB') %></td>
+      <td>
+        <a href="products/<%= product._id %>/edit">
+          <button class="btn btn-dark">Edit</button>
+        </a>
+      </td>
+      <td>
+        <form
+          method="POST"
+          action="/products/<%= product._id %>?_method=DELETE"
+        >
+          <button class="btn btn-dark">Delete</button>
+        </form>
+      </td>
+    </tr>
+    <%}%>
+  </table>
 </div>

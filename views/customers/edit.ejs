@@ -1,1 +1,42 @@
 <% layout("/layouts/boilerplate.ejs")%>
+<div>
+  <div>
+    <h3>Add New Customer</h3>
+  </div>
+  <form
+    method="POST"
+    action="/customers/<%=customer._id%>?_method=PUT"
+    novalidate
+    class="needs-validation"
+  >
+    <div>
+      <label for="num" class="form-label">Customer No.</label>
+      <input
+        class="form-control"
+        type="number"
+        name="customer[num]"
+        value="<%= customer.num %>"
+        required
+      />
+    </div>
+    <div>
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        name="customer[name]"
+        value="<%=customer.name%>"
+        class="form-control"
+      />
+    </div>
+    <div>
+      <label for="phNo" class="form-label">Mobile No.</label>
+      <input
+        type="number"
+        class="form-control"
+        value="<%=customer.phNo%>"
+        name="customer[phNo]"
+      />
+    </div>
+    <button class="mt-3 mb-3 btn btn-dark">Edit</button>
+  </form>
+</div>

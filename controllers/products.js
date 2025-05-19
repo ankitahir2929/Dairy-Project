@@ -1,9 +1,8 @@
 const Product = require("../models/product");
 
-let date = new Date().toISOString().slice(0, 10);
-
+let date = new Date(Date.now());
 module.exports.show = async (req, res) => {
-  const products = await Product.find({});
+  const products = await Product.find({}).sort({ date: 1 });
   res.render("products/show", { products });
 };
 
@@ -13,25 +12,26 @@ module.exports.renderNewForm = async (req, res) => {
 };
 
 module.exports.createNewProduct = async (req, res) => {
-  const newProduct = new Product(req.body.products);
+  let newProduct = new Product(req.body.products);
   await newProduct.save();
-  res.redirect("products");
-};
-
-module.exports.updateProduct = async (req, res) => {
-  let { id } = req.params;
-  await Product.findByIdAndUpdate(id, { ...req.body.product });
   res.redirect("products");
 };
 
 module.exports.renderEditForm = async (req, res) => {
   let { id } = req.params;
   const product = await Product.findById(id);
-  res.render("products/edit", { product });
+  res.render("products/edit.ejs", { product });
+};
+
+module.exports.updateProduct = async (req, res) => {
+  let { id } = req.params;
+  const product = await Product.findByIdAndUpdate(id, { ...req.body.products });
+  await product.save();
+  res.redirect("/products");
 };
 
 module.exports.deleteProduct = async (req, res) => {
   let { id } = req.params;
   await Product.findByIdAndDelete(id);
-  res.redirect("../products");
+  res.redirect("/products");
 };

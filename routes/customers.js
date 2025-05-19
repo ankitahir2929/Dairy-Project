@@ -5,11 +5,16 @@ const customersController = require("../controllers/customers");
 
 router
   .route("/")
-  .get(customersController.show)
+  .get(customersController.index)
   .post(customersController.createNewCustomer);
+
+router
+  .route("/:id")
+  .put(customersController.updateCustomer)
+  .delete(customersController.deleteCustomer);
 
 router.get("/new", customersController.renderNewForm);
 
-router.route("/:id").delete(customersController.deleteCustomer);
+router.get("/:id/edit", customersController.renderEditForm);
 
 module.exports = router;

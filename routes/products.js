@@ -13,8 +13,8 @@ router
   .put(productsController.updateProduct)
   .delete(productsController.deleteProduct);
 
-router.route("/new").get(productsController.renderNewForm);
+router.get("/new", productsController.renderNewForm);
 
-router.route("/:id/edit").get(productsController.renderEditForm);
+router.get("/:id/edit", productsController.renderEditForm);
 
 module.exports = router;

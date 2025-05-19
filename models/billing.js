@@ -2,26 +2,38 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const billingSchema = new Schema({
-  invoice: {
-    type: mongoose.Schema.Types.ObjectId,
+  // product: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Product",
+  //   },
+  // ],
+
+  proNo: {
+    type: Number,
     required: true,
   },
-  customer: {
-    type: Schema.Types.ObjectId,
-    ref: "Customer",
+
+  proPrice: {
+    type: Number,
+    required: true,
   },
-  product: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Products",
-    },
-  ],
+
+  proName: {
+    type: String,
+    required: true,
+  },
 
   date: {
     type: Date,
     required: true,
   },
+  qty: {
+    type: Number,
+    required: true,
+    min: 1,
+  },
 });
 
-const Billing = mongoose.model("Billing", billingSchema);
+const Billing = mongoose.model("Billings", billingSchema);
 module.exports = Billing;

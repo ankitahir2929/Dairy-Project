@@ -1,0 +1,66 @@
+<% layout("/layouts/boilerplate.ejs") %>
+<h3 class="mt-3">No. : <%= customer.num %></h3>
+<h3 class="mt-3">Name : <%= customer.name %></h3>
+<legend>Billing Information</legend>
+<% let totalAmount = 0 %> <%if(customer.billing && customer.billing.length > 0)
+{%>
+<table
+  class="table mt-3 mb-3 text-center align-middle table-striped table-bordered fs-5"
+>
+  <thead>
+    <tr>
+      <th class="col-">Name</th>
+      <th class="col-">Date</th>
+      <th class="col">Qty.</th>
+      <th class="col">Price</th>
+      <th class="col">Total Amount</th>
+      <th class="col"></th>
+      <th class="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for(let billing of customer.billing) {%>
+
+    <tr>
+      <td><%=billing.proName%></td>
+      <td><%= billing.date.toLocaleDateString('en-GB') %></td>
+      <td><%=billing.qty%></td>
+
+      <td><%=billing.proPrice%></td>
+
+      <td><%=billing.proPrice * billing.qty%></td>
+      <td>
+        <a href="/billing/<%= customer._id%>/bills/<%= billing._id %>/edit"
+          ><button class="btn btn-dark">Edit</button></a
+        >
+      </td>
+      <td>
+        <form
+          method="POST"
+          action="/billing/<%= customer._id %>/bills/<%= billing._id %>?_method=DELETE"
+        >
+          <button class="btn btn-dark">Delete</button>
+        </form>
+      </td>
+      <% totalAmount += billing.proPrice * billing.qty %>
+    </tr>
+
+    <%}%>
+    <tr>
+      <td colspan="4" class="fw-bold">Total Amount</td>
+      <td class="fw-bold" id="totalAmount"><%=totalAmount%></td>
+    </tr>
+  </tbody>
+</table>
+<% } else {%>
+<h3>No Bills</h3>
+<a href="/billing"
+  ><button class="mt-3 mb-3 btn btn-dark" id="openDateModal">
+    Go to all Bills
+  </button></a
+>
+<%}%>
+
+<a href="/billing/new"
+  ><button class="mt-3 mb-3 btn btn-dark">Add New Bill</button></a
+>
