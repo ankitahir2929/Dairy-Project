@@ -14,7 +14,7 @@
       <th class="col">Mobile No.</th>
       <th class="col"></th>
     </tr>
-
+     
     <% for(let customer of customers) { %>
   <% if(customer.billing && customer.billing.length > 0) { %>
     <tr>
@@ -22,9 +22,9 @@
       <td><%= customer.name %></td>
       <td><%= customer.phNo %></td>
       <td>
-        <a href="/billing/<%= customer._id %>/bills"
-    ><button class="btn btn-dark">Bill Details</button></a
-  >
+        <form method="GET" action="/billing/<%= customer._id %>/bills"
+    ><button class="btn btn-dark">Bill Details</button>
+    </form>
       </td>
     </tr>
   <% } %>

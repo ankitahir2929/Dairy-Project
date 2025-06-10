@@ -154,7 +154,7 @@ async function getProName() {
 //   }
 // });
 document.addEventListener("DOMContentLoaded", function () {
-  const openModalBtn = document.getElementById("openDateModal");
+  const openModalBtn = document.querySelectorAll(".openDateModal");
   const dateModal = document.getElementById("dateModal");
   const cancelBtn = document.getElementById("cancelDates");
   const submitBtn = document.getElementById("submitDates");
@@ -225,7 +225,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Event listeners
-  openModalBtn.addEventListener("click", openModal);
+  openModalBtn.forEach((button) => {
+    button.addEventListener("click", openModal);
+  });
 
   cancelBtn.addEventListener("click", function (e) {
     e.preventDefault(); // This prevents form submission

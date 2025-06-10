@@ -115,16 +115,6 @@ body.modal-open::before {
   z-index: 999;
 }
 
-/* Date range button */
-#openDateModal {
-  padding: 10px 20px;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
 /* Modal container */
 .modal-overlay {
   display: none;

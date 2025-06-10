@@ -2,7 +2,7 @@ const Product = require("../models/product");
 
 let date = new Date(Date.now());
 module.exports.show = async (req, res) => {
-  const products = await Product.find({}).sort({ date: 1 });
+  const products = await Product.find({});
   res.render("products/show", { products });
 };
 

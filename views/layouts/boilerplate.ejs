@@ -28,7 +28,9 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
     <div><%- include("../includes/navbar.ejs") %></div>
-    <div class="container"><%- body %></div>
+    <div class="container">
+      <%- include("../includes/flash.ejs") %> <%- body %>
+    </div>
     <div><%- include("../includes/dateInput.ejs") %></div>
     <div><%- include("../includes/footer.ejs") %></div>
     <script
