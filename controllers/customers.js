@@ -11,7 +11,9 @@ module.exports.createNewCustomer = async (req, res) => {
   res.redirect("customers");
 };
 
-module.exports.renderNewForm = (req, res) => {
+module.exports.renderNewForm = async (req, res) => {
+  // const custNum = await Customer.findOne().sort({ _id: -1 }).limit(1);
+  // console.log(custNum);
   res.render("customers/new");
 };
 

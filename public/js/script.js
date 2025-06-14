@@ -63,6 +63,38 @@ async function getProName() {
   }
 }
 
+// Print functionality
+document.querySelector(".print-btn")?.addEventListener("click", function () {
+  window.print();
+});
+
+// Simple client-side validation
+document.addEventListener("DOMContentLoaded", function () {
+  // Enable form validation
+  const forms = document.querySelectorAll(".needs-validation");
+
+  Array.from(forms).forEach((form) => {
+    form.addEventListener(
+      "submit",
+      function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+
+        form.classList.add("was-validated");
+      },
+      false
+    );
+  });
+
+  // Set default time if empty
+  const timeInput = document.getElementById("deliveryTime");
+  if (!timeInput.value) {
+    timeInput.value = "07:00";
+  }
+});
+
 // document.addEventListener("DOMContentLoaded", function () {
 //   // Use event delegation for dynamic elements
 //   document.addEventListener("click", function (e) {

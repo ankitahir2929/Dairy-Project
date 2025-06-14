@@ -13,6 +13,8 @@ module.exports.renderNewForm = async (req, res) => {
 
 module.exports.createNewProduct = async (req, res) => {
   let newProduct = new Product(req.body.products);
+  newProduct.updatedAt = newProduct.dateAdded;
+  newProduct.stock = newProduct.qty;
   await newProduct.save();
   res.redirect("products");
 };
@@ -26,6 +28,7 @@ module.exports.renderEditForm = async (req, res) => {
 module.exports.updateProduct = async (req, res) => {
   let { id } = req.params;
   const product = await Product.findByIdAndUpdate(id, { ...req.body.products });
+  product.updatedAt = date;
   await product.save();
   res.redirect("/products");
 };

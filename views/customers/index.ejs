@@ -1,36 +1,42 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<div>
-        <h3>All Customers</h3>
-        <a href="/customers/new"
-        ><button class="btn btn-dark">Add New Customer</button></a
-        >
-        <table class="table mt-3 mb-3 text-center align-middle table-striped table-bordered fs-5">
-            <tr>
-                <th class="col">No.</th>
-                <th class="col">Name</th>
-                <th class="col">Mobile No.</th>
-                <th class="col"></th>
-                <th class="col"></th>
-            </tr>
-           
-            <% for(let customer of customers) {%>
-                <tr>
-                    <td scope="row"><%= customer.num %></td>
-                    <td><%= customer.name %></td>
-                    <td><%= customer.phNo %></td>
-                    <td>
-                        <a href="/customers/<%= customer._id%>/edit"
-                            ><button class="btn btn-dark">Edit</button></a
-                            >
-                        </td>
-                        <td>
-                            <form method="POST" action="/customers/<%= customer._id %>?_method=DELETE">
-                                <button class="btn btn-dark">Delete</button>
-                            </form>
-                        </td>
-                    </tr>
-                    <%}%>
-            
-                </table>
+<div class="">
+  <h3 class="mt-3">All Customers</h3>
+  <form method="GET" action="/customers/new">
+    <button class="btn btn-dark">Add New Customer</button>
+  </form>
+  <div class="mt-3 mb-3 custom-table-container rounded-3">
+    <table class="text-center align-middle custom-table fs-5">
+      <thead>
+        <tr class="custom-header">
+          <th>No.</th>
+          <th>Name</th>
+          <th>Mobile No.</th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let customer of customers) {%>
+        <tr class="custom-row">
+          <td scope="row"><%= customer.num %></td>
+          <td><%= customer.name %></td>
+          <td><%= customer.phNo %></td>
+          <td>
+            <a href="/customers/<%= customer._id%>/edit">
+              <button class="btn btn-dark">Edit</button>
+            </a>
+          </td>
+          <td>
+            <form
+              method="POST"
+              action="/customers/<%= customer._id %>?_method=DELETE"
+            >
+              <button class="btn btn-dark">Delete</button>
             </form>
-            </div>
+          </td>
+        </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+</div>

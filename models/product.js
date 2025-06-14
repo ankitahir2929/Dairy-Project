@@ -24,12 +24,52 @@ const productSchema = new Schema({
     required: true,
     min: 1,
   },
+  stock: {
+    type: Number,
+    required: true,
+  },
   supName: {
     type: String,
   },
-  date: {
+  supCode: {
+    type: String,
+  },
+  dateAdded: {
     type: Date,
     required: true,
+  },
+  dateExpiry: {
+    type: Date,
+  },
+  updatedAt: {
+    type: Date,
+  },
+  description: {
+    type: String,
+  },
+  costPrice: {
+    type: Number,
+  },
+  minStock: {
+    type: Number,
+  },
+  weight: {
+    type: Number,
+  },
+  barcode: {
+    type: String,
+  },
+  condition: {
+    type: String,
+  },
+  location: {
+    type: String,
+  },
+  tags: {
+    type: String,
+  },
+  notes: {
+    type: String,
   },
 });
 

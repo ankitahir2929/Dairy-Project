@@ -5,7 +5,7 @@
       <h3 class="mb-0">Create New Bill</h3>
     </div>
     <div class="card-body">
-      <form method="POST" action="/billing" novalidate class="needs-validation">
+      <form method="POST" action="/billing/<%=customer._id%>" novalidate class="needs-validation">
         <!-- Customer Information Section -->
         <fieldset class="p-3 mb-4 border rounded">
           <legend class="w-auto px-2 fs-5">Customer Information</legend>
@@ -21,7 +21,7 @@
                   type="number"
                   id="custNo"
                   name="custNo"
-                  value="<%=customer.num || ''%>"
+                  value="<%=customer.num%>"
                   required
                   autofocus
                   onblur="getCustName()"

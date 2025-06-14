@@ -1,35 +1,36 @@
 <% layout("/layouts/boilerplate") %>
 
-<a href="billing/new"
-  ><button class="mt-3 mb-3 btn btn-dark">Add New Bill</button></a
->
+<form method="GET" action="/billing/new">
+  <button class="mt-3 mb-3 btn btn-dark">Add New Bill</button>
+</form>
 <div>
   <h3>All Customers</h3>
-  <table
-    class="table mt-3 mb-3 text-center align-middle table-striped table-bordered fs-5"
-  >
-    <tr>
-      <th class="col">No.</th>
-      <th class="col">Name</th>
-      <th class="col">Mobile No.</th>
-      <th class="col"></th>
-    </tr>
-     
-    <% for(let customer of customers) { %>
-  <% if(customer.billing && customer.billing.length > 0) { %>
-    <tr>
-      <td scope="row"><%= customer.num %></td>
-      <td><%= customer.name %></td>
-      <td><%= customer.phNo %></td>
-      <td>
-        <form method="GET" action="/billing/<%= customer._id %>/bills"
-    ><button class="btn btn-dark">Bill Details</button>
-    </form>
-      </td>
-    </tr>
-  <% } %>
-<% } %>
-  </table>
-</div>
-
+  <div class="custom-table-container">
+    <table class="custom-table">
+      <thead>
+        <tr class="custom-header">
+          <th>No.</th>
+          <th>Name</th>
+          <th>Mobile No.</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let customer of customers) { %>
+          <% if(customer.billing && customer.billing.length > 0) { %>
+            <tr class="custom-row">
+              <td><%= customer.num %></td>
+              <td><%= customer.name %></td>
+              <td><%= customer.phNo %></td>
+              <td>
+                <form method="GET" action="/billing/<%= customer._id %>/bills">
+                  <button class="btn btn-dark">Bill Details</button>
+                </form>
+              </td>
+            </tr>
+          <% } %>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
 </div>

@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Billing = require("./billing");
 
 const customerSchema = new Schema({
   num: {
@@ -13,6 +12,16 @@ const customerSchema = new Schema({
   },
   phNo: {
     type: Number,
+  },
+  address: {
+    type: String,
+  },
+  milkType: {
+    type: String,
+  },
+  joinDate: {
+    type: Date,
+    required: true,
   },
   billing: [
     {
