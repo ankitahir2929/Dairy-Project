@@ -1,27 +1,160 @@
 <% layout("/layouts/boilerplate.ejs") %>
-<div>
-  <div>
-    <h3>Add New Customer</h3>
+<div class="py-4 ">
+  <div class="border-0 shadow-lg card" style="max-width: 800px; margin: 0 auto">
+    <div class="py-3 text-white card-header bg-primary">
+      <div class="d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">
+          <i class="bi bi-cup-hot me-2"></i>New Dairy Customer Registration
+        </h3>
+        <span class="badge bg-light text-primary">Daily Milk</span>
+      </div>
+    </div>
+
+    <div class="p-4 card-body">
+      <form
+        method="POST"
+        action="/customers"
+        novalidate
+        class="needs-validation"
+      >
+        <div class="row g-3">
+          <!-- Customer Basic Info -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="num" class="form-label fw-bold">Customer ID*</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"
+                  ><i class="bi bi-123 text-primary"></i
+                ></span>
+                <input
+                  type="number"
+                  class="form-control"
+                  id="num"
+                  name="customer[num]"
+                  required
+                  placeholder="e.g. 1001"
+                />
+              </div>
+              <div class="invalid-feedback">
+                Please enter a valid customer ID
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="name" class="form-label fw-bold">Full Name*</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"
+                  ><i class="bi bi-person text-primary"></i
+                ></span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  name="customer[name]"
+                  required
+                  placeholder="e.g. Rajesh Kumar"
+                />
+              </div>
+              <div class="invalid-feedback">Please enter customer name</div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="phNo" class="form-label">Mobile Number*</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"
+                  ><i class="bi bi-phone text-primary"></i
+                ></span>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phNo"
+                  name="customer[phNo]"
+                  required
+                  pattern="[0-9]{10}"
+                  placeholder="e.g. 9876543210"
+                />
+              </div>
+              <div class="invalid-feedback">
+                Please enter 10-digit mobile number
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <div class="mb-3">
+              <label for="address" class="form-label">Delivery Address*</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light align-items-start"
+                  ><i class="mt-1 bi bi-geo-alt text-primary"></i
+                ></span>
+                <textarea
+                  class="form-control"
+                  id="address"
+                  name="customer[address]"
+                  required
+                  rows="2"
+                  placeholder="House no, Street, Area, City"
+                ></textarea>
+              </div>
+              <div class="invalid-feedback">Please enter delivery address</div>
+            </div>
+          </div>
+
+          <!-- Milk Details -->
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="milkType" class="form-label fw-bold"
+                >Milk Type*</label
+              >
+              <select
+                class="form-select"
+                id="milkType"
+                name="customer[milkType]"
+                required
+              >
+                <option value="" selected disabled>Select milk type</option>
+                <option value="cow">Cow Milk</option>
+                <option value="buffalo">Buffalo Milk</option>
+                <option value="skimmed">Skimmed Milk</option>
+                <option value="toned">Toned Milk</option>
+                <option value="custom">Custom Milk</option>
+              </select>
+              <div class="invalid-feedback">Please select milk type</div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="mb-3">
+              <label for="joinDate" class="form-label">Join Date*</label>
+              <div class="input-group">
+                <span class="input-group-text bg-light"
+                  ><i class="bi bi-calendar text-primary"></i
+                ></span>
+                <input
+                  type="date"
+                  class="form-control"
+                  id="joinDate"
+                  name="customer[joinDate]"
+                  required
+                  value="<%= new Date().toISOString().split('T')[0] %>"
+                />
+              </div>
+            </div>
+          </div>
+
+        <div class="pt-4 d-flex justify-content-between border-top">
+          <button type="reset" class="px-4 btn btn-outline-secondary">
+            <i class="bi bi-x-circle me-2"></i>Clear Form
+          </button>
+          <button type="submit" class="px-4 btn btn-success">
+            <i class="bi bi-person-plus me-2"></i>Register Customer
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
-  <form method="POST" action="/customers" novalidate class="needs-validation">
-    <div>
-      <label for="num" class="form-label">Customer No.</label>
-      <input
-        for="_id"
-        class="form-control"
-        type="number"
-        name="customer[num]"
-        required
-      />
-    </div>
-    <div>
-      <label for="name" class="form-label">Name</label>
-      <input type="text" name="customer[name]" class="form-control" />
-    </div>
-    <div>
-      <label for="phNo" class="form-label">Mobile No.</label>
-      <input type="number" class="form-control" name="customer[phNo]" />
-    </div>
-    <button class="mt-3 mb-3 btn btn-dark">Add Customer</button>
-  </form>
 </div>

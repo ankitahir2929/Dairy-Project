@@ -11,7 +11,6 @@
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
       crossorigin="anonymous"
     />
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
@@ -19,20 +18,38 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poppins&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Additional styles to ensure proper footer spacing */
+      main {
+        flex: 1 0 auto;
+        padding-bottom: 2rem;
+      }
+      footer {
+        flex-shrink: 0;
+      }
+    </style>
   </head>
   <body class="d-flex flex-column min-vh-100">
-    <div><%- include("../includes/navbar.ejs") %></div>
-    <div class="container">
+    <%- include("../includes/navbar.ejs") %>
+
+    <main class="container py-4 flex-grow-1">
       <%- include("../includes/flash.ejs") %> <%- body %>
-    </div>
-    <div><%- include("../includes/dateInput.ejs") %></div>
-    <div><%- include("../includes/footer.ejs") %></div>
+    </main>
+
+    <%- include("../includes/dateInput.ejs") %>
+
+    <footer class="mt-auto"><%- include("../includes/footer.ejs") %></footer>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
